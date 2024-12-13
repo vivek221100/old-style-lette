@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Old Style Letter</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #f5f5dc; /* Light beige background */
+            margin: 0;
+            padding: 20px;
+        }
+
+        .letter-background {
+            background-image: url('https://static.vecteezy.com/system/resources/thumbnails/000/126/875/small/old-vintage-paper-texture.jpg'); /* Replace with your own image URL */
+            background-size: cover;
+            border: 1px solid #d2b48c; /* Tan border */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 24px;
+        }
+
+        .clickable {
+            font-size: 48px;
+            cursor: pointer;
+            transition: transform 0.2s; /* Smooth transition */
+        }
+
+        .clicked {
+            transform: scale(1.2); /* Scale up effect */
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        #message {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="letter-background">
+        <h1>Hey ,</h1>
+        <p>Click on the letter below to reveal a message:</p>
+        <p id="clickable-letter" class="clickable">✉️</p>
+        <p id="message" class="hidden">I want to say something to you!</p>
+    </div>
+
+    <script>
+        document.getElementById('clickable-letter').addEventListener('click', function() {
+            const letter = document.getElementById('clickable-letter');
+            
+            // Add the clicked class for animation
+            letter.classList.add('clicked');
+
+            // Show the message
+            document.getElementById('message').classList.toggle('hidden');
+
+            // Remove the clicked class after animation duration
+            setTimeout(() => {
+                letter.classList.remove('clicked');
+            }, 200); // Duration should match CSS transition time
+        });
+    </script>
+</body>
+</html>
